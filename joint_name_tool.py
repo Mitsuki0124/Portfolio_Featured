@@ -1,11 +1,7 @@
 import re
 from maya import cmds
 
-
-# =========================================================
 # Core Joint Functions
-# =========================================================
-
 def get_selected_joints():
     """選択中のノードからJointのみを取得"""
     selection = cmds.ls(selection=True, dag=True, long=True) or []
@@ -62,9 +58,7 @@ def joint_name_delete():
     print(f"{count} 個のJointの名前表示を削除（非表示）しました。")
 
 
-# =========================================================
 # Feature 1: Color Coding
-# =========================================================
 
 def color_code_joints(reset=False):
     """L / R プレフィックスに応じてJointの表示色を設定"""
@@ -98,9 +92,7 @@ def color_code_joints(reset=False):
         print(f"{len(joints)} 個のJointを自動色分けしました（L:青 / R:赤 / C:黄）。")
 
 
-# =========================================================
 # Feature 2: Renumbering Suffix
-# =========================================================
 
 def renumber_joint_suffix(padding_field):
     """選択順または階層順に末尾の数字を綺麗に振り直す"""
@@ -140,9 +132,7 @@ def renumber_joint_suffix(padding_field):
     print(f"{renamed_count} 個のJointのナンバリングを振り直しました。")
 
 
-# =========================================================
 # Feature 3: Duplicate Name Check & Fix
-# =========================================================
 
 def find_duplicate_joints():
     """重複名を持つJointを抽出"""
@@ -202,9 +192,8 @@ def fix_duplicate_joints():
     print(f"{renamed_count} 個の重複名Jointを自動リネームしてユニーク化しました。")
 
 
-# =========================================================
 # Feature 4: Empty Transform Cleanup
-# =========================================================
+
 
 def get_empty_transforms():
     """階層内の不要な空Transformノードを検索"""
@@ -258,10 +247,7 @@ def delete_empty_transforms():
 
     print(f"{count} 個の不要な空Transformノードを削除しました。")
 
-
-# =========================================================
 # GUI
-# =========================================================
 
 def joint_name_tool():
     window_name = "jointNameToolWindow"
